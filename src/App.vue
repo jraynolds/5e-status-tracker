@@ -5,12 +5,15 @@
 			color="primary"
 			dark
 		>
+			<v-spacer />
+			<v-card-title>5e Status Tracker</v-card-title>
+			<v-spacer />
 		</v-app-bar>
 
 		<v-main>
 			<v-container>
-				<v-row>
-					<v-col cols="6">
+				<v-row class="justify-center">
+					<v-col xl="4" lg="6" md="6" sm="12" cols="12">
 						<v-card class="text-center pb-8">
 							<v-img>
 								<v-icon size="300">
@@ -104,7 +107,7 @@
 							/>
 						</v-card>
 					</v-col>
-					<v-col cols="6">
+					<v-col xl="4" lg="6" md="6" sm="12" cols="12">
 						<v-card>
 							<v-row class="ma-0 align-center">
 								<v-spacer />
