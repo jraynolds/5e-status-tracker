@@ -1,0 +1,213 @@
+{
+	"negative": [
+		{ 
+			"title": "Blinded", 
+			"icon": "sunglasses", 
+			"selected": false, 
+			"effects": { "attack": "disadvantage", "otherAttack": "advantage" },
+			"descriptions": [
+				"You automatically fail any ability check requiring sight."
+			]
+		},
+		{ 
+			"title": "Charmed", 
+			"icon": "heart", 
+			"selected": false, 
+			"effects": { "otherSocial": "advantage" },
+			"descriptions": [
+				"You can't attack your charmer or target them with harmful abilities or magical effects."
+			]
+		},
+		{ 
+			"title": "Deafened", 
+			"icon": "volume-off", 
+			"selected": false, 
+			"effects": { },
+			"descriptions": [
+				"You automatically fail any ability check which requires hearing."
+			]
+		},
+		{ 
+			"title": "Frightened", 
+			"icon": "ghost", 
+			"selected": false, 
+			"effects": { },
+			"ifs": [
+				{ 
+					"if": "Can you see source of fear?", 
+					"yes": {
+						"attack": "disadvantage",
+						"abilities": "disadvantage"
+					}
+				}
+			],
+			"descriptions": [
+				"If you can see the source of your fear, you attack and roll ability checks at Disadvantage.",
+				"You can't willingly move closer to the source of your fear."
+			]
+		},
+		{ 
+			"title": "Grappled", 
+			"icon": "handshake", 
+			"selected": false, 
+			"effects": { "movement": false },
+			"descriptions": [
+			]
+		},
+		{ 
+			"title": "Incapacitated", 
+			"icon": "account-lock", 
+			"selected": false, 
+			"effects": { "action": false, "bonusAction": false, "reaction": false } ,
+			"descriptions": [
+				"You automatically fail any ability check requiring sight.",
+				"You have Disadvantage on attack rolls.",
+				"Attack rolls against you have Advantage."
+			]
+		},
+		{ 
+			"title": "Paralyzed", 
+			"icon": "flash-alert", 
+			"selected": false, 
+			"effects": { 
+				"action": false, 
+				"bonusAction": false,
+				"movement": false, 
+				"reaction": false, 
+				"strSave": "fail", 
+				"dexSave": "fail",
+				"resistances": ["all"]
+			} ,
+			"descriptions": [
+				"You can't speak.",
+				"Any attack that hits you is a critical hit if the attacker is within 5 feet of you."
+			]
+		},
+		{ 
+			"title": "Petrified", 
+			"icon": "snake", 
+			"selected": false, 
+			"effects": { 
+				"action": false, 
+				"bonusAction": false,
+				"movement": false, 
+				"reaction": false,
+				"otherAttack": "advantage",
+				"resistances": [ "all" ],
+				"str": "fail", 
+				"dex": "fail"
+			},
+			"descriptions": [
+				"Your weight increases by a factor of ten, and you cease aging.",
+				"You are unaware of your surroundings.",
+				"You can't speak.",
+				"You are immune to poison and disease."
+			]
+		},
+		{ 
+			"title": "Poisoned", 
+			"icon": "bottle-tonic-skull", 
+			"selected": false, 
+			"effects": { 
+				"attack": "disadvantage",
+				"abilities": "disadvantage"
+			},
+			"descriptions": [
+			]
+		},
+		{ 
+			"title": "Prone", 
+			"icon": "human-handsup", 
+			"selected": false, 
+			"effects": { 
+				"attack": "disadvantage",
+				"abilities": "disadvantage"
+			},
+			"ifs": [
+				{ 
+					"if": "Attacker within 5 feet?", 
+					"yes": {
+						"otherAttack": "advantage"
+					}, 
+					"no": {
+						"otherAttack": "disadvantage"
+					}
+				}
+			],
+			"rotate": 90,
+			"descriptions": [
+				"Attackers within 5 feet make attacks against you at Advantage.",
+				"Attackers farther than 5 feet make attacks against you at Disadvantage.",
+				"You can only move by crawling, at half speed."
+			]
+		},
+		{ 
+			"title": "Restrained", 
+			"icon": "handcuffs", 
+			"selected": false, 
+			"effects": { 
+				"movement": false,
+				"attack": "disadvantage",
+				"otherAttack": "advantage",
+				"dex": "disadvantage"
+			},
+			"descriptions": [
+			]
+		},
+		{ 
+			"title": "Stunned", 
+			"icon": "head-snowflake", 
+			"selected": false, 
+			"effects": { 
+				"action": false, 
+				"bonusAction": false,
+				"movement": false, 
+				"reaction": false,
+				"otherAttack": "advantage",
+				"str": "fail",
+				"dex": "fail"
+			},
+			"descriptions": [
+				"You can speak only falteringly."
+			]
+		},
+		{ 
+			"title": "Unconscious", 
+			"icon": "chat-sleep", 
+			"selected": false, 
+			"effects": { 
+				"action": false, 
+				"bonusAction": false,
+				"movement": false, 
+				"reaction": false,
+				"otherAttack": "advantage",
+				"str": "fail",
+				"dex": "fail"
+			},
+			"ifs": [
+				{ 
+					"if": "Attacker within 5 feet?", 
+					"yes": {
+						"otherAttack": "critical"
+					}
+				}
+			],
+			"descriptions": [
+				"Attackers within 5 feet automatically critically hit when they attack you.",
+				"You can't speak, and are unaware of your surroundings."
+			]
+		}
+	],
+	"positive": [
+		{ 
+			"title": "Invisible", 
+			"icon": "account-search-outline", 
+			"selected": false, 
+			"effects": { "attack": "advantage", "otherAttack": "disadvantage" },
+			"opacity": 0.5,
+			"descriptions": [
+				"For the purpose of hiding, you are heavily obscured."
+			]
+		}
+	]
+}
