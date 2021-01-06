@@ -47,6 +47,12 @@
 									</v-row>
 								</v-container>
 							</v-expand-transition>
+							<v-card-title class="justify-center align-center">
+								You can do these:
+							</v-card-title>
+							<v-card-subtitle>
+								Click one once you've used it.
+							</v-card-subtitle>
 							<v-row class="text-center px-4 mb-4">
 								<v-col cols="6" v-for="actionType of actionTypes" :key="actionType.title">
 									<ActionType 

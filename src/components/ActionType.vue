@@ -6,6 +6,7 @@
 				x-large 
 				@click="isClicked = !isClicked"
 				:color="!isAvailable ? 'gray' : color"
+				:disabled="isDisabled"
 				v-bind="attrs"
 				v-on="on"
 			>
@@ -45,9 +46,22 @@ export default {
 			if (this.isClicked) return false;
 			if (!this.isYourTurn && this.title != "reaction") return false;
 			for (let source of this.activeSources) {
-				if (this.title in source.effects && source.effects[this.title] == false) return false;
+				if (
+					this.title in source.effects && 
+					source.effects[this.title] == false
+				) return false;
 			}
 			return true;
+		},
+		isDisabled() {
+			if (!this.isYourTurn && this.title != "reaction") return true;
+			for (let source of this.activeSources) {
+				if (
+					this.title in source.effects && 
+					source.effects[this.title] == false
+				) return true;
+			}
+			return false;
 		},
 		mitigators() {
 			let mitigators = [];
