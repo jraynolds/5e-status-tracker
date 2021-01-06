@@ -13,7 +13,7 @@
 		<v-main>
 			<v-container>
 				<v-row class="justify-center">
-					<v-col xl="4" lg="4" md="6" sm="12" cols="12">
+					<v-col xl="4" lg="4" md="6" sm="9" cols="12">
 						<v-card class="text-center pb-8">
 							<v-img>
 								<v-icon size="300">
@@ -107,7 +107,7 @@
 							/>
 						</v-card>
 					</v-col>
-					<v-col xl="4" lg="4" md="6" sm="12" cols="12">
+					<v-col xl="4" lg="4" md="6" sm="9" cols="12">
 						<v-card>
 							<v-row class="ma-0 align-center">
 								<v-spacer />
@@ -170,6 +170,18 @@
 							</v-btn-toggle>
 						</v-card>
 					</v-col>
+				</v-row>
+
+				<v-spacer />
+				<v-row class="text-center justify-center mb-n4">
+					<v-card-subtitle>
+						This utility created by Jasper Raynolds. All information is from the SRD.
+					</v-card-subtitle>
+				</v-row>
+				<v-row class="text-center justify-center mt-n6">
+					<v-card-subtitle>
+						If you have questions, comments or recommendations, you can tweet me at <a href="https://twitter.com/jasper_raynolds">@jasper_raynolds</a>.
+					</v-card-subtitle>
 				</v-row>
 			</v-container>
 		</v-main>
