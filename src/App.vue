@@ -13,7 +13,7 @@
 		<v-main>
 			<v-container>
 				<v-row class="justify-center">
-					<v-col xl="4" lg="6" md="6" sm="12" cols="12">
+					<v-col xl="4" lg="4" md="6" sm="12" cols="12">
 						<v-card class="text-center pb-8">
 							<v-img>
 								<v-icon size="300">
@@ -107,7 +107,7 @@
 							/>
 						</v-card>
 					</v-col>
-					<v-col xl="4" lg="6" md="6" sm="12" cols="12">
+					<v-col xl="4" lg="4" md="6" sm="12" cols="12">
 						<v-card>
 							<v-row class="ma-0 align-center">
 								<v-spacer />
