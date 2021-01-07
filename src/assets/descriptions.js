@@ -9,6 +9,7 @@ let descriptify = (effects) => {
 	if ("strSave" in effects) out.push(conversions.strSave[effects.strSave]);
 	if ("dex" in effects) out.push(conversions.dex[effects.dex]);
 	if ("dexSave" in effects) out.push(conversions.dexSave[effects.dexSave]);
+	if ("movement" in effects) out.push(conversions.movement[effects.movement]);
 	if ("resistances" in effects) {
 		for (let resistance of effects.resistances) out.push("You have resistance against " + resistance + " damage types .");
 	}

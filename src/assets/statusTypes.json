@@ -60,9 +60,7 @@
 			"selected": false, 
 			"effects": { "action": false, "bonusAction": false, "reaction": false } ,
 			"descriptions": [
-				"You automatically fail any ability check requiring sight.",
-				"You have Disadvantage on attack rolls.",
-				"Attack rolls against you have Advantage."
+				"You can't take Actions, Bonus Actions or Reactions."
 			]
 		},
 		{ 
