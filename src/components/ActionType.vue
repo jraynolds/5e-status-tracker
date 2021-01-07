@@ -1,17 +1,17 @@
 <template>
 	<v-tooltip bottom>
-		<template v-slot:activator="{ on, attrs }">
-			<v-btn 
-				style="width: 100%;"
-				x-large 
-				@click="isClicked = !isClicked"
-				:color="!isAvailable ? 'gray' : color"
-				:disabled="isDisabled"
-				v-bind="attrs"
-				v-on="on"
-			>
-				<v-icon left>{{ "mdi-" + icon }}</v-icon>{{ titleify(title) }}
-			</v-btn>
+		<template v-slot:activator="{ on }">
+			<div v-on="on" class="d-inline-block" style="width: 100%;">
+				<v-btn 
+					style="width: 100%;"
+					x-large 
+					@click="isClicked = !isClicked"
+					:color="!isAvailable ? 'gray' : color"
+					:disabled="isDisabled"
+				>
+					<v-icon left>{{ "mdi-" + icon }}</v-icon>{{ titleify(title) }}
+				</v-btn>
+			</div>
 		</template>
 		<v-card-title><em>{{ availability }}</em></v-card-title>
 		<v-row>
