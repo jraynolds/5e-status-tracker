@@ -1,7 +1,12 @@
 <template>
 	<v-tooltip bottom max-width="500">
 		<template v-slot:activator="{ on, attrs }">
-			<v-btn v-bind="attrs" v-on="on">
+			<v-btn 
+				v-bind="attrs" 
+				v-on="on" 
+				@click="clicked = !clicked" 
+				:dark="selected"
+			>
 				<v-icon 
 					:style="style"
 				>
@@ -21,7 +26,10 @@
 
 <script>
 export default {
-	props: [ "icon", "title", "effects", "descriptions", "rotate", "opacity" ],
+	props: [ "icon", "title", "effects", "descriptions", "rotate", "opacity", "selected" ],
+	data: () => ({
+		isClicked: false
+	}),
 	computed: {
 		bulletPoints() {
 			let points = [];
@@ -35,8 +43,13 @@ export default {
 
 			if (this.rotate) style.transform = "rotate(" + this.rotate + "deg)";
 			if (this.opacity) style.opacity = this.opacity;
+			if (this.selected) style.color = "white";
 
 			return style;
+		},
+		clicked: {
+			get: function() { return this.selected },
+			set: function(val) { this.$emit('update:selected', val); this.isClicked = val; }
 		}
 	},
 	methods: {

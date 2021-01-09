@@ -25,13 +25,23 @@
 					</ul>
 				</v-card-subtitle>
 			</v-row>
+			<v-row class="ml-0">
+				<v-switch 
+					style="transform: scale(.75);" 
+					v-model="concise" 
+					label="Concise mode"
+					@change="$emit('update:concise', concise)" />
+			</v-row>
 		</v-container>
 	</v-expand-transition>
 </template>
 
 <script>
 export default {
-	props: [ "show", "title", "items", "seeSources" ]
+	props: [ "show", "title", "items", "seeSources" ],
+	data: () => ({
+		concise: false
+	})
 }
 </script>
 

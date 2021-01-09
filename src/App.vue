@@ -103,7 +103,9 @@
 								:show="statusDescriptions.length > 0"
 								:title="'Status Effects'"
 								:items="statusDescriptions"
-								:seeSources="true" 
+								:seeSources="true"
+								:concise="conciseStatuses"
+								v-on:update:concise="conciseStatuses = $event"
 							/>
 						</v-card>
 					</v-col>
@@ -149,6 +151,8 @@
 											:descriptions="status.descriptions"
 											:rotate="status.rotate"
 											:opacity="status.opacity"
+											:selected="status.selected"
+											v-on:update:selected="status.selected = $event"
 										/>
 									</v-col>
 								</v-row>
@@ -164,10 +168,15 @@
 											:descriptions="status.descriptions"
 											:rotate="status.rotate"
 											:opacity="status.opacity"
+											:selected="status.selected"
+											v-on:update:selected="status.selected = $event"
 										/>
 									</v-col>
 								</v-row>
 							</v-btn-toggle>
+							<v-row class="ma-0 pa-2">
+								<v-btn style="width: 100%;" color="primary" @click="reset()">RESET</v-btn>
+							</v-row>
 						</v-card>
 					</v-col>
 				</v-row>
@@ -255,7 +264,8 @@ export default {
 			negative: [],
 			positive: []
 		},
-		statuses: statusTypes
+		statuses: statusTypes,
+		conciseStatuses: false,
 	}),
 	computed: {
 		activeSources() {
@@ -274,13 +284,28 @@ export default {
 		},
 		statusDescriptions() {
 			let descriptions = [];
+			let uniquePoints = [];
 
 			for (let source of this.activeSources) {
 				let points = [];
-				for (let conversion of descriptify(source.effects)) points.push(conversion);
-				for (let description of source.descriptions) points.push(description);
+				for (let conversion of descriptify(source.effects)) {
+					if (this.conciseStatuses && uniquePoints.includes(conversion)) {
+						continue;
+					}
+					uniquePoints.push(conversion);
+					points.push(conversion);
+				}
+				for (let description of source.descriptions) {
+					if (this.conciseStatuses && uniquePoints.includes(description)) {
+						continue;
+					}
+					uniquePoints.push(description);
+					points.push(description);
+				}
 				descriptions.push({ title: source.title, points: points });
 			}
+
+			console.log(uniquePoints);
 
 			return descriptions;
 		},
@@ -355,6 +380,15 @@ export default {
 		}
 	},
 	methods: {
+		reset() {
+			this.statusToggled = {
+				negative: [],
+				positive: []
+			};
+			console.log(this.statuses);
+			for (let status of this.statuses.positive) status.selected = false;
+			for (let status of this.statuses.negative) status.selected = false;
+		},
 		consoleLog(out) {
 			console.log(out);
 		},
